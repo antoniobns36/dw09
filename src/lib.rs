@@ -14,7 +14,7 @@
 /// Hint: Consider what happens to the decimal values before we 
 /// cast from u32 to f64.
 pub fn average_dollars(total_cents: u32, count: u32) -> f64 {
-    (total_cents / 100.0 / count) as f64 
+    (total_cents as f64/ 100.0 / count as f64) as f64 
 }
 
 /// Compares an average price against a spending limit (both in dollars).
@@ -31,7 +31,7 @@ pub fn average_dollars(total_cents: u32, count: u32) -> f64 {
 /// assert_eq!(budget_status(1.00, 1.50), "Within budget");
 /// ```
 pub fn budget_status(average: f64, limit: f64) -> &'static str {
-    if average < limit {
+    if average > limit {
         "Above budget"
     } else {
         "Within budget"
